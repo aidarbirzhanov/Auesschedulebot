@@ -23,7 +23,7 @@ def callback(call):
     if call.data == 'yes':
         markup_reply = types.ReplyKeyboardMarkup(resize_keyboard=True)
         item_weather = types.KeyboardButton('Погода')
-        item_schedule = types.KeyboardButton('Рассписание')
+        item_schedule = types.KeyboardButton('Расписание')
 
         markup_reply.add(item_weather, item_schedule,)
         client.send_message(call.message.chat.id, 'Информацию о чем вы хотите получить?',
@@ -36,10 +36,10 @@ def callback(call):
 def get_info(message):
     global fio
     if message.text == 'Бот, расскажи о себе':
-        client.send_message(message.chat.id,'Добро пожаловать в телеграм-бот Leps0n.\n\n С помощью данного бота вы сможете\n 1. Узнать погоду на сегодня\n 2. Рассписание занятий на сегодня \n Для начала работы напишите "/start"')
+        client.send_message(message.chat.id,'Добро пожаловать в телеграм-бот Auesschedulebot.\n\n С помощью данного бота вы сможете\n 1. Узнать погоду на сегодня\n 2. Рассписание занятий на сегодня \n Для начала работы напишите "/start"')
     elif message.text == 'Погода':
         client.send_message(message.chat.id, parse.parse())
-    elif message.text == 'Рассписание':
+    elif message.text == 'Расписание':
         client.send_message(message.chat.id, parse_aues.parse_schedule())
     else:
         client.send_message(message.chat.id, 'Я не знаю этой команды:(\nЕсли хочешь узнать мой функционал, напиши мне "Бот, расскажи о себе"')
